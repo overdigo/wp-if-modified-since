@@ -13,8 +13,9 @@ Comply with Webmaster Guidelines, save some bandwith and reduce server load with
 == Description ==
 
 If Modified Since tells search engine spiders one of two things about a webpage:
-1. This webpage has not changed, no need to download again.
-1. This webpage has changed so download again because there is new information.
+
+* This webpage has not changed, no need to download again.
+* This webpage has changed so download again because there is new information.
 
 If the requested page has not been modified since the time specified by a search engine spider, a 304 (not modified) response will be returned without any message-body.
 
