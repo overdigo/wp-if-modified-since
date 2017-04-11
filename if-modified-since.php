@@ -39,13 +39,13 @@ class If_Modified_Since {
 			return;
 		}
 
-		if ( isset( $_SERVER['HTTP_IF_MODIFIED_SINCE'] ) &&
-			strtotime( $_SERVER['HTTP_IF_MODIFIED_SINCE'] ) >= $mtime )
-		{
+		$lastmod = gmdate( 'D, d M Y H:i:s', $mtime ) . ' GMT';
+
+		if ( isset( $_SERVER['HTTP_IF_MODIFIED_SINCE'] ) && $lastmod == $_SERVER['HTTP_IF_MODIFIED_SINCE'] ) {
 			http_response_code( 304 );
 			exit;
 		} else {
-			header( 'Last-Modified: ' . gmdate( 'D, d M Y H:i:s', $mtime ) . ' GMT' );
+			header( 'Last-Modified: ' . $lastmod );
 		}
 	}
 
